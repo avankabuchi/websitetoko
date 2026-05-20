@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Toko Bung Edi – Sembako & BRI Link, Kroya</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#f4f4f2;color:#1a1a1a;overflow-x:hidden}
+
+:root{
+  --red:#cc0000;
+  --red-dark:#a30000;
+  --red-light:#fff0f0;
+  --blue:#003f88;
+  --blue-mid:#0052b4;
+  --gold:#f5c518;
+  --text:#1a1a1a;
+  --text-muted:#666;
+  --bg:#f4f4f2;
+  --white:#fff;
+  --border:#e8e8e4;
+  --radius:10px;
+  --radius-lg:16px;
+}
+
+/* ── TOP BAR ── */
+.topbar{background:#111;color:rgba(255,255,255,.75);font-size:.75rem;font-weight:600;display:flex;justify-content:space-between;align-items:center;padding:7px 24px;gap:8px;flex-wrap:wrap}
+.topbar-left{display:flex;align-items:center;gap:6px}
+.topbar-right{display:flex;align-items:center;gap:16px}
+.topbar a{color:rgba(255,255,255,.85);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color .2s}
+.topbar a:hover{color:#fff}
+.topbar .dot{color:rgba(255,255,255,.3)}
+
+/* ── NAV ── */
+nav{background:var(--white);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;padding:0 24px;height:60px;gap:8px}
+.nav-logo{display:flex;align-items:center;gap:10px;margin-right:auto;flex-shrink:0;text-decoration:none}
+.logo-mark{background:var(--red);color:#fff;font-size:1rem;font-weight:900;padding:6px 12px;border-radius:8px;letter-spacing:-.3px;line-height:1;white-space:nowrap}
+.logo-mark em{color:var(--gold);font-style:normal}
+.nav-links{display:flex;align-items:stretch;gap:2px}
+.nav-link{display:flex;align-items:center;gap:4px;padding:0 12px;height:60px;font-weight:700;font-size:.82rem;color:var(--text-muted);text-decoration:none;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap}
+.nav-link:hover,.nav-link.active{color:var(--red);border-bottom-color:var(--red)}
+.nav-ctas{display:flex;align-items:center;gap:8px;margin-left:16px;flex-shrink:0}
+.btn-call{display:flex;align-items:center;gap:6px;background:var(--red);color:#fff;font-weight:800;font-size:.8rem;padding:8px 14px;border-radius:8px;text-decoration:none;transition:background .2s;white-space:nowrap}
+.btn-call:hover{background:var(--red-dark)}
+.btn-wa{display:flex;align-items:center;gap:6px;background:#25d366;color:#fff;font-weight:800;font-size:.8rem;padding:8px 14px;border-radius:8px;text-decoration:none;transition:background .2s;white-space:nowrap}
+.btn-wa:hover{background:#1da851}
+.hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:8px;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;font-size:1.2rem}
+
+/* Mobile nav drawer */
+.mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:2000;background:rgba(0,0,0,.5)}
+.mobile-nav.open{display:block}
+.mobile-nav-panel{position:absolute;left:0;top:0;bottom:0;width:280px;background:#fff;padding:24px;overflow-y:auto;transform:translateX(-100%);transition:transform .3s ease}
+.mobile-nav.open .mobile-nav-panel{transform:none}
+.mob-close{background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--text-muted);margin-bottom:20px;display:block}
+.mob-logo{display:flex;margin-bottom:20px}
+.mob-links{display:flex;flex-direction:column;gap:4px}
+.mob-link{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:8px;font-weight:700;font-size:.9rem;color:var(--text);text-decoration:none;transition:background .2s}
+.mob-link:hover{background:var(--red-light);color:var(--red)}
+.mob-ctas{display:flex;flex-direction:column;gap:10px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border)}
+
+/* ── HERO ── */
+.hero{background:var(--red);position:relative;overflow:hidden}
+.hero-inner{max-width:1200px;margin:0 auto;padding:0 24px}
+.hero-slides{position:relative;min-height:320px;display:flex;align-items:center}
+.hslide{position:absolute;inset:0;opacity:0;transition:opacity .6s;display:flex;align-items:center;pointer-events:none}
+.hslide.active{opacity:1;pointer-events:auto;position:relative;flex:1}
+.hslide-1{--h-bg:linear-gradient(130deg,#cc0000 0%,#e83333 100%)}
+.hslide-2{--h-bg:linear-gradient(130deg,#003f88 0%,#0a5fc9 100%)}
+.hslide-3{--h-bg:linear-gradient(130deg,#c45e00 0%,#e07b20 100%)}
+.hero-slides-wrap{background:var(--h-bg, linear-gradient(130deg,#cc0000 0%,#e83333 100%))}
+.slide-bg{position:absolute;inset:0;background:var(--h-bg,linear-gradient(130deg,#cc0000,#e83333));transition:background .6s}
+.hslide-content{position:relative;z-index:1;padding:48px 0;display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;width:100%}
+.slide-tag{display:inline-block;background:rgba(255,255,255,.2);color:rgba(255,255,255,.9);font-size:.7rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:50px;margin-bottom:14px}
+.slide-h{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px}
+.slide-h strong{color:var(--gold)}
+.slide-p{color:rgba(255,255,255,.82);font-size:.92rem;font-weight:500;line-height:1.6;margin-bottom:22px}
+.slide-cta{display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--red);font-weight:900;font-size:.88rem;padding:11px 22px;border-radius:8px;text-decoration:none;transition:transform .2s}
+.slide-cta:hover{transform:translateY(-2px)}
+.slide-cta.cta-blue{color:var(--blue-mid)}
+.slide-cta.cta-orange{color:#c45e00}
+.slide-graphic{font-size:clamp(4rem,8vw,7rem);opacity:.18;user-select:none;flex-shrink:0;line-height:1}
+.hero-controls{position:absolute;bottom:0;left:0;right:0;padding:14px 0;display:flex;align-items:center;justify-content:center;gap:8px;z-index:10}
+.hero-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:none}
+.hero-dot.active{background:#fff;width:22px;border-radius:4px}
+.hero-arr{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.2);border:none;color:#fff;width:38px;height:38px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:background .2s;z-index:10}
+.hero-arr:hover{background:rgba(255,255,255,.38)}
+.hero-arr.prev{left:12px}
+.hero-arr.next{right:12px}
+
+/* ── TICKER ── */
+.ticker-wrap{background:#fff;border-bottom:1px solid var(--border);overflow:hidden;padding:0}
+.ticker-track{display:flex;animation:ticker 22s linear infinite;width:max-content}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{display:flex;align-items:center;gap:6px;padding:10px 28px;font-weight:700;font-size:.78rem;color:var(--red);white-space:nowrap;border-right:1px solid var(--border)}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── PAGE ── */
+.page{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ── SECTIONS ── */
+.sec{padding:28px 0}
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:12px;border-bottom:1.5px solid var(--border)}
+.sec-title{font-size:1.1rem;font-weight:900;color:var(--text);display:flex;align-items:center;gap:10px}
+.sec-title::before{content:'';display:block;width:3px;height:18px;background:var(--red);border-radius:2px;flex-shrink:0}
+.sec-more{font-size:.8rem;font-weight:700;color:var(--red);text-decoration:none}
+.sec-more:hover{text-decoration:underline}
+
+/* ── PROMO GRID ── */
+.promo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.promo-card{border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.07);transition:transform .2s,box-shadow .2s}
+.promo-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.13)}
+.promo-face{height:130px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.35rem;color:#fff;position:relative;text-align:center;line-height:1.2}
+.promo-face.red{background:linear-gradient(135deg,#cc0000,#ff4d4d)}
+.promo-face.blue{background:linear-gradient(135deg,#003f88,#1a73e8)}
+.promo-face.teal{background:linear-gradient(135deg,#00796b,#43a047)}
+.promo-face.amber{background:linear-gradient(135deg,#c45e00,#f5a623)}
+.promo-badge{position:absolute;top:8px;right:8px;background:var(--gold);color:#5a3a00;font-size:.62rem;font-weight:900;padding:3px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px}
+.promo-body{background:#fff;padding:10px 12px}
+.promo-body h3{font-weight:800;font-size:.86rem;color:var(--text)}
+.promo-body p{font-size:.74rem;color:var(--text-muted);margin-top:2px;font-weight:600}
+
+/* ── PRODUK ── */
+.produk-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.produk-card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);transition:transform .2s,box-shadow .2s;cursor:pointer}
+.produk-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
+.produk-img{height:90px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;background:#fafaf8}
+.produk-body{padding:10px 10px 12px}
+.produk-name{font-weight:700;font-size:.8rem;color:var(--text);line-height:1.3}
+.produk-avail{color:var(--red);font-weight:700;font-size:.78rem;margin-top:3px}
+.produk-btn{display:block;width:100%;margin-top:8px;background:var(--red);color:#fff;border:none;border-radius:6px;padding:7px;font-weight:800;font-size:.74rem;cursor:pointer;font-family:inherit;transition:background .2s}
+.produk-btn:hover{background:var(--red-dark)}
+.produk-card.cta-card{background:linear-gradient(135deg,#cc0000,#ff4d4d);border-color:transparent}
+.produk-card.cta-card .produk-name{color:#fff}
+.produk-card.cta-card .produk-avail{color:rgba(255,255,255,.8)}
+.produk-card.cta-card .produk-btn{background:#fff;color:var(--red)}
+.produk-card.cta-card .produk-img{background:rgba(255,255,255,.1);font-size:2rem}
+
+/* ── LAYANAN ── */
+.ltabs{display:flex;gap:0;border-bottom:1.5px solid var(--border);margin-bottom:20px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.ltab{padding:10px 18px;font-weight:700;font-size:.83rem;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1.5px;white-space:nowrap;transition:all .2s;user-select:none}
+.ltab.active{color:var(--red);border-bottom-color:var(--red)}
+.layanan-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.layanan-card{background:#fff;border-radius:var(--radius);border:1px solid var(--border);padding:18px 10px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.layanan-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
+.layanan-ico{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+.layanan-name{font-weight:700;font-size:.76rem;color:var(--text-muted);text-align:center;line-height:1.3}
+
+/* ── BRI BANNER ── */
+.bri-banner{background:linear-gradient(120deg,#002a6e,#003f88,#0052b4);border-radius:var(--radius-lg);padding:clamp(24px,4vw,40px);display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;margin:28px 0}
+.bri-tag{display:inline-block;background:rgba(255,255,255,.18);color:var(--gold);font-size:.7rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:50px;margin-bottom:10px}
+.bri-h{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:900;color:#fff;line-height:1.2;margin-bottom:8px}
+.bri-p{color:rgba(255,255,255,.78);font-size:.9rem;font-weight:500;line-height:1.65;max-width:420px}
+.bri-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.bri-pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);color:#fff;font-size:.76rem;font-weight:700;padding:5px 12px;border-radius:50px}
+.bri-right{display:flex;flex-direction:column;align-items:center;gap:12px;flex-shrink:0}
+.bri-card{background:linear-gradient(135deg,#f5c518,#f09800);border-radius:var(--radius-lg);padding:20px 28px;text-align:center;min-width:160px;box-shadow:0 10px 36px rgba(0,0,0,.35)}
+.bri-card-ico{font-size:2.4rem;margin-bottom:4px}
+.bri-card-t{font-size:1.05rem;font-weight:900;color:#002a6e}
+.bri-card-s{font-size:.72rem;font-weight:700;color:#00388a;opacity:.75}
+.bri-wa{display:inline-flex;align-items:center;gap:7px;background:#25d366;color:#fff;font-weight:800;font-size:.83rem;padding:10px 20px;border-radius:8px;text-decoration:none;white-space:nowrap}
+.bri-wa:hover{background:#1da851}
+
+/* ── KEUNGGULAN ── */
+.keung-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.keung-card{background:#fff;border-radius:var(--radius-lg);padding:24px 18px;border:1px solid var(--border);text-align:center;transition:transform .2s,box-shadow .2s}
+.keung-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.keung-ico{font-size:2rem;margin-bottom:12px}
+.keung-t{font-weight:800;font-size:.92rem;color:var(--text);margin-bottom:6px}
+.keung-d{font-size:.8rem;color:var(--text-muted);line-height:1.55}
+
+/* ── KONTAK BAR ── */
+.kontak-bar{background:var(--red);padding:28px 0;margin-top:28px}
+.kontak-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.kontak-item{display:flex;align-items:center;gap:14px}
+.kontak-ico{font-size:1.6rem;flex-shrink:0}
+.kontak-label{color:rgba(255,255,255,.65);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px}
+.kontak-val{color:#fff;font-size:.95rem;font-weight:800;margin-top:2px}
+.kontak-val a{color:#fff;text-decoration:none}
+.kontak-val a:hover{text-decoration:underline}
+
+/* ── MAP ── */
+.map-sec{background:#fff;padding:28px 0}
+.map-wrap{border-radius:var(--radius-lg);overflow:hidden;height:320px;position:relative;border:1px solid var(--border)}
+.map-wrap iframe{width:100%;height:100%;border:0}
+.map-btn{position:absolute;bottom:14px;right:14px;display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;font-weight:800;font-size:.8rem;padding:9px 16px;border-radius:8px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.map-btn:hover{background:var(--red-dark)}
+
+/* ── FOOTER ── */
+footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
+.footer-grid{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:32px}
+.footer-desc{font-size:.83rem;line-height:1.7;color:rgba(255,255,255,.55);max-width:280px;margin-top:12px}
+.footer-addr{font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.45);margin-top:12px}
+.footer-col-t{font-weight:800;font-size:.88rem;color:#fff;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-links{display:flex;flex-direction:column;gap:8px}
+.footer-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.83rem;font-weight:600;transition:color .2s}
+.footer-links a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding:16px 24px;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:rgba(255,255,255,.35);flex-wrap:wrap;gap:8px}
+
+/* ════════════════════════
+   RESPONSIVE — TABLET (768–1023px)
+════════════════════════ */
+@media(max-width:1023px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .promo-grid{grid-template-columns:repeat(2,1fr)}
+  .produk-grid{grid-template-columns:repeat(3,1fr)}
+  .layanan-grid{grid-template-columns:repeat(3,1fr)}
+  .keung-grid{grid-template-columns:repeat(2,1fr)}
+  .kontak-inner{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .bri-banner{grid-template-columns:1fr}
+  .bri-right{flex-direction:row;justify-content:flex-start}
+  .slide-graphic{font-size:5rem}
+}
+
+/* ════════════════════════
+   RESPONSIVE — MOBILE (<600px)
+════════════════════════ */
+@media(max-width:599px){
+  .topbar{padding:6px 16px}
+  .topbar-left span:first-child{display:none}
+  .nav-inner{padding:0 16px;height:54px}
+  .nav-ctas .btn-call{display:none}
+
+  .hero-arr{width:32px;height:32px;font-size:.9rem}
+  .hslide-content{grid-template-columns:1fr;padding:36px 0 52px}
+  .slide-graphic{display:none}
+
+  .page{padding:0 16px}
+
+  .promo-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .promo-face{height:110px;font-size:1.15rem}
+
+  .produk-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .produk-img{height:80px;font-size:2rem}
+
+  .layanan-grid{grid-template-columns:repeat(3,1fr);gap:8px}
+  .layanan-card{padding:14px 8px}
+  .layanan-ico{width:44px;height:44px;font-size:1.4rem}
+  .layanan-name{font-size:.72rem}
+
+  .bri-banner{padding:22px 18px}
+  .bri-h{font-size:1.3rem}
+  .bri-right{flex-direction:column;align-items:flex-start}
+  .bri-card{min-width:unset;width:100%}
+
+  .keung-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .keung-card{padding:18px 14px}
+
+  .kontak-inner{grid-template-columns:1fr;gap:16px}
+
+  .map-wrap{height:250px}
+
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .footer-bottom{flex-direction:column;text-align:center}
+
+  .sec{padding:20px 0}
+  .sec-title{font-size:1rem}
+
+  .ltab{padding:9px 14px;font-size:.8rem}
+}
+
+/* ════════════════════════
+   RESPONSIVE — SMALL MOBILE (<380px)
+════════════════════════ */
+@media(max-width:379px){
+  .layanan-grid{grid-template-columns:repeat(2,1fr)}
+  .produk-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span>🏪</span>
+    <span>Toko Bung Edi – Sembako & BRI Link, Kroya Cilacap</span>
+  </div>
+  <div class="topbar-right">
+    <a href="tel:081327958234">📞 0813-2795-8234</a>
+    <span class="dot">|</span>
+    <a href="https://wa.me/6281327958234" target="_blank">💬 WhatsApp</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">
+      <div class="logo-mark">Toko <em>Bung Edi</em></div>
+    </a>
+    <div class="nav-links">
+      <a class="nav-link active" href="#">🏠 Beranda</a>
+      <a class="nav-link" href="#produk">🛒 Produk</a>
+      <a class="nav-link" href="#layanan">💳 Layanan Digital</a>
+      <a class="nav-link" href="#brilink">🏦 BRI Link</a>
+      <a class="nav-link" href="#lokasi">📍 Lokasi</a>
+    </div>
+    <div class="nav-ctas">
+      <a class="btn-call" href="tel:081327958234">📞 0813-2795-8234</a>
+      <a class="btn-wa" href="https://wa.me/6281327958234" target="_blank">💬 WhatsApp</a>
+    </div>
+    <button class="hamburger" id="ham" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-panel" id="mobilePanel">
+    <button class="mob-close" id="mobClose">✕</button>
+    <div class="mob-logo"><div class="logo-mark">Toko <em>Bung Edi</em></div></div>
+    <div class="mob-links">
+      <a class="mob-link" href="#" onclick="closeMob()">🏠 Beranda</a>
+      <a class="mob-link" href="#produk" onclick="closeMob()">🛒 Produk Sembako</a>
+      <a class="mob-link" href="#layanan" onclick="closeMob()">💳 Layanan Digital</a>
+      <a class="mob-link" href="#brilink" onclick="closeMob()">🏦 BRI Link</a>
+      <a class="mob-link" href="#lokasi" onclick="closeMob()">📍 Lokasi</a>
+    </div>
+    <div class="mob-ctas">
+      <a class="btn-call" href="tel:081327958234" style="justify-content:center;padding:12px">📞 0813-2795-8234</a>
+      <a class="btn-wa" href="https://wa.me/6281327958234" target="_blank" style="justify-content:center;padding:12px">💬 Chat WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO SLIDER -->
+<div class="hero" id="heroBg">
+  <div class="hero-inner" style="position:relative">
+    <div class="hero-slides" id="heroSlides">
+      <!-- Slide 1 -->
+      <div class="hslide active" id="hs0">
+        <div class="hslide-content">
+          <div>
+            <div class="slide-tag">🔥 Promo Hari Ini</div>
+            <div class="slide-h">Sembako <strong>Lengkap</strong><br/>Harga Hemat!</div>
+            <div class="slide-p">Beras, telur, minyak, mie & kebutuhan dapur<br/>tersedia lengkap di Toko Bung Edi.</div>
+            <a href="#produk" class="slide-cta">Lihat Produk →</a>
+          </div>
+          <div class="slide-graphic">🛒</div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="hslide" id="hs1">
+        <div class="hslide-content">
+          <div>
+            <div class="slide-tag">🏦 Agen Resmi</div>
+            <div class="slide-h">Layanan <strong>BRI Link</strong><br/>Ada di Sini!</div>
+            <div class="slide-p">Tarik tunai, transfer, bayar tagihan, isi e-wallet —<br/>semua tanpa antri ke bank!</div>
+            <a href="#brilink" class="slide-cta cta-blue">Info BRI Link →</a>
+          </div>
+          <div class="slide-graphic">🏦</div>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="hslide" id="hs2">
+        <div class="hslide-content">
+          <div>
+            <div class="slide-tag">📍 Kroya, Cilacap</div>
+            <div class="slide-h">Dekat, <strong style="color:#fff">Mudah</strong>,<br/>& Terpercaya!</div>
+            <div class="slide-p">Jl. Turonggo, Karangturi, Kroya — melayani<br/>warga sekitar dengan sepenuh hati.</div>
+            <a href="#lokasi" class="slide-cta cta-orange">Lihat Lokasi →</a>
+          </div>
+          <div class="slide-graphic">📍</div>
+        </div>
+      </div>
+    </div>
+    <button class="hero-arr prev" onclick="changeSlide(-1)">‹</button>
+    <button class="hero-arr next" onclick="changeSlide(1)">›</button>
+    <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10">
+      <button class="hero-dot active" onclick="goSlide(0)"></button>
+      <button class="hero-dot" onclick="goSlide(1)"></button>
+      <button class="hero-dot" onclick="goSlide(2)"></button>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <div class="ticker-item">🔥 Sembako Lengkap Setiap Hari</div>
+    <div class="ticker-item">🏦 BRI Link Resmi – Tarik Tunai & Transfer</div>
+    <div class="ticker-item">🥚 Beras & Telur Segar Tersedia</div>
+    <div class="ticker-item">🧴 Kebutuhan Rumah Tangga Lengkap</div>
+    <div class="ticker-item">☕ Kopi, Teh & Minuman Favorit</div>
+    <div class="ticker-item">💵 Bayar Tagihan Listrik & Air</div>
+    <div class="ticker-item">🎯 Harga Terjangkau – Bung Edi Kroya</div>
+    <div class="ticker-item">🔥 Sembako Lengkap Setiap Hari</div>
+    <div class="ticker-item">🏦 BRI Link Resmi – Tarik Tunai & Transfer</div>
+    <div class="ticker-item">🥚 Beras & Telur Segar Tersedia</div>
+    <div class="ticker-item">🧴 Kebutuhan Rumah Tangga Lengkap</div>
+    <div class="ticker-item">☕ Kopi, Teh & Minuman Favorit</div>
+    <div class="ticker-item">💵 Bayar Tagihan Listrik & Air</div>
+    <div class="ticker-item">🎯 Harga Terjangkau – Bung Edi Kroya</div>
+  </div>
+</div>
+
+<!-- PAGE CONTENT -->
+<div class="page">
+
+  <!-- PROMO -->
+  <section class="sec">
+    <div class="sec-head">
+      <div class="sec-title">Promo &amp; Program</div>
+      <a href="#" class="sec-more">Lihat Semua ›</a>
+    </div>
+    <div class="promo-grid">
+      <div class="promo-card">
+        <div class="promo-face red">🔥 HOT PROMO<div class="promo-badge">Hari Ini</div></div>
+        <div class="promo-body"><h3>Hot Promo Sembako</h3><p>Harga spesial setiap hari</p></div>
+      </div>
+      <div class="promo-card">
+        <div class="promo-face blue">🏦 BRI LINK<div class="promo-badge">Gratis Admin</div></div>
+        <div class="promo-body"><h3>BRI Link Agen Resmi</h3><p>Transfer & tarik tunai mudah</p></div>
+      </div>
+      <div class="promo-card">
+        <div class="promo-face teal">📦 PRODUK SPESIAL<div class="promo-badge">Mingguan</div></div>
+        <div class="promo-body"><h3>Produk Spesial Mingguan</h3><p>Pilihan terbaik setiap minggu</p></div>
+      </div>
+      <div class="promo-card">
+        <div class="promo-face amber">🎁 SERBA ADA</div>
+        <div class="promo-body"><h3>Serba Ada di Bung Edi</h3><p>Lengkap & terjangkau</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUK SEMBAKO -->
+  <section class="sec" id="produk">
+    <div class="sec-head">
+      <div class="sec-title">Produk Sembako</div>
+      <a href="#" class="sec-more">Lihat Semua ›</a>
+    </div>
+    <div class="produk-grid">
+      <div class="produk-card"><div class="produk-img">🌾</div><div class="produk-body"><div class="produk-name">Beras Premium</div><div class="produk-avail">Tersedia</div><button class="produk-btn" onclick="tanya('Beras Premium')">Tanya Harga</button></div></div>
+      <div class="produk-card"><div class="produk-img">🥚</div><div class="produk-body"><div class="produk-name">Telur Ayam</div><div class="produk-avail">Tersedia</div><button class="produk-btn" onclick="tanya('Telur Ayam')">Tanya Harga</button></div></div>
+      <div class="produk-card"><div class="produk-img">🫙</div><div class="produk-body"><div class="produk-name">Minyak Goreng</div><div class="produk-avail">Tersedia</div><button class="produk-btn" onclick="tanya('Minyak Goreng')">Tanya Harga</button></div></div>
+      <div class="produk-card"><div class="produk-img">🧂</div><div class="produk-body"><div class="produk-name">Gula & Garam</div><div class="produk-avail">Tersedia</div><button class="produk-btn" onclick="tanya('Gula dan Garam')">Tanya Harga</button></div></div>
+      <div class="produk-card"><div class="produk-img">🍜</div><div class="produk-body"><div class="produk-name">Mie Instan</div><div class="produk-avail">Tersedia</div><button class="produk-btn" onclick="tanya('Mie Instan')">Tanya Harga</button></div></div>
+      <div class="produk-card"><div class="produk-img">☕</div><div class="produk-body"><div class="produk-name">Kopi & Teh</div><div class="produk-avail">Tersedia</div><button class="produk-btn" onclick="tanya('Kopi dan Teh')">Tanya Harga</button></div></div>
+      <div class="produk-card"><div class="produk-img">🥛</div><div class="produk-body"><div class="produk-name">Susu & Minuman</div><div class="produk-avail">Tersedia</div><button class="produk-btn" onclick="tanya('Susu dan Minuman')">Tanya Harga</button></div></div>
+      <div class="produk-card"><div class="produk-img">🧴</div><div class="produk-body"><div class="produk-name">Sabun & Sampo</div><div class="produk-avail">Tersedia</div><button class="produk-btn" onclick="tanya('Sabun dan Sampo')">Tanya Harga</button></div></div>
+      <div class="produk-card"><div class="produk-img">🦷</div><div class="produk-body"><div class="produk-name">Pasta Gigi</div><div class="produk-avail">Tersedia</div><button class="produk-btn" onclick="tanya('Pasta Gigi')">Tanya Harga</button></div></div>
+      <div class="produk-card"><div class="produk-img">🍪</div><div class="produk-body"><div class="produk-name">Snack & Biskuit</div><div class="produk-avail">Tersedia</div><button class="produk-btn" onclick="tanya('Snack dan Biskuit')">Tanya Harga</button></div></div>
+      <div class="produk-card"><div class="produk-img">🧹</div><div class="produk-body"><div class="produk-name">Alat Kebersihan</div><div class="produk-avail">Tersedia</div><button class="produk-btn" onclick="tanya('Alat Kebersihan')">Tanya Harga</button></div></div>
+      <div class="produk-card cta-card"><div class="produk-img">🛍️</div><div class="produk-body"><div class="produk-name">& Masih Banyak Lagi!</div><div class="produk-avail">Datang langsung</div><button class="produk-btn" onclick="tanya('semua produk')">Tanya Stok</button></div></div>
+    </div>
+  </section>
+
+  <!-- LAYANAN DIGITAL -->
+  <section class="sec" id="layanan">
+    <div class="sec-head"><div class="sec-title">Produk &amp; Layanan Digital</div></div>
+    <div class="ltabs">
+      <div class="ltab active" onclick="switchTab(this,'ewallet')">💳 Uang Elektronik</div>
+      <div class="ltab" onclick="switchTab(this,'pembayaran')">🔌 Pembayaran</div>
+      <div class="ltab" onclick="switchTab(this,'transfer')">💸 Transfer Dana</div>
+    </div>
+    <div id="tab-ewallet" class="layanan-grid">
+      <div class="layanan-card"><div class="layanan-ico" style="background:#fff0e6">🛍</div><div class="layanan-name">ShopeePay</div></div>
+      <div class="layanan-card"><div class="layanan-ico" style="background:#e8f2fb">💙</div><div class="layanan-name">DANA</div></div>
+      <div class="layanan-card"><div class="layanan-ico" style="background:#e6f9ef">💚</div><div class="layanan-name">GoPay</div></div>
+      <div class="layanan-card"><div class="layanan-ico" style="background:#e8eef9">🔗</div><div class="layanan-name">LinkAja</div></div>
+      <div class="layanan-card"><div class="layanan-ico" style="background:#fde8f4">💳</div><div class="layanan-name">OVO</div></div>
+      <div class="layanan-card"><div class="layanan-ico" style="background:#ffeeee">🏦</div><div class="layanan-name">BRI Link</div></div>
+    </div>
+    <div id="tab-pembayaran" class="layanan-grid" style="display:none">
+      <div class="layanan-card"><div class="layanan-ico" style="background:#e8eef9">⚡</div><div class="layanan-name">Listrik PLN</div></div>
+      <div class="layanan-card"><div class="layanan-ico" style="background:#e6f4fb">💧</div><div class="layanan-name">PDAM / Air</div></div>
+      <div class="layanan-card"><div class="layanan-ico" style="background:#fde8f4">📱</div><div class="layanan-name">Pulsa & Paket</div></div>
+      <div class="layanan-card"><div class="layanan-ico" style="background:#fff0e6">📺</div><div class="layanan-name">TV Kabel</div></div>
+      <div class="layanan-card"><div class="layanan-ico" style="background:#eaf6e4">🌐</div><div class="layanan-name">Internet</div></div>
+      <div class="layanan-card"><div class="layanan-ico" style="background:#e8eef9">🎓</div><div class="layanan-name">BPJS Kes.</div></div>
+    </div>
+    <div id="tab-transfer" class="layanan-grid" style="display:none">
+      <div class="layanan-card"><div class="layanan-ico" style="background:#e8eef9">🏦</div><div class="layanan-name">Transfer BRI</div></div>
+      <div class="layanan-card"><div class="layanan-ico" style="background:#e8eef9">💙</div><div class="layanan-name">Transfer BNI</div></div>
+      <div class="layanan-card"><div class="layanan-ico" style="background:#fff8e6">🟡</div><div class="layanan-name">Transfer Mandiri</div></div>
+      <div class="layanan-card"><div class="layanan-ico" style="background:#ffeeee">❤️</div><div class="layanan-name">Transfer BCA</div></div>
+      <div class="layanan-card"><div class="layanan-ico" style="background:#e6f9ef">💵</div><div class="layanan-name">Transfer Lainnya</div></div>
+      <div class="layanan-card"><div class="layanan-ico" style="background:#f3e8fb">📲</div><div class="layanan-name">Tarik Tunai</div></div>
+    </div>
+  </section>
+
+  <!-- BRI LINK -->
+  <div class="bri-banner" id="brilink">
+    <div>
+      <div class="bri-tag">🏦 Agen Resmi BRI</div>
+      <div class="bri-h">Layanan BRI Link<br/>Ada di Toko Bung Edi!</div>
+      <div class="bri-p">Tak perlu antri di bank! Semua transaksi perbankan bisa dilakukan langsung di sini, cepat, mudah, dan terpercaya.</div>
+      <div class="bri-pills">
+        <span class="bri-pill">✓ Tarik Tunai</span>
+        <span class="bri-pill">✓ Transfer Antar Bank</span>
+        <span class="bri-pill">✓ Bayar Tagihan</span>
+        <span class="bri-pill">✓ Isi E-Wallet</span>
+        <span class="bri-pill">✓ Cek Saldo</span>
+      </div>
+    </div>
+    <div class="bri-right">
+      <div class="bri-card">
+        <div class="bri-card-ico">🏦</div>
+        <div class="bri-card-t">BRI Link</div>
+        <div class="bri-card-s">Agen Resmi BRI</div>
+      </div>
+      <a class="bri-wa" href="https://wa.me/6281327958234?text=Halo%20Bung%20Edi%2C%20saya%20mau%20tanya%20soal%20BRI%20Link." target="_blank">💬 Tanya via WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- KEUNGGULAN -->
+  <section class="sec">
+    <div class="sec-head"><div class="sec-title">Kenapa Pilih Bung Edi?</div></div>
+    <div class="keung-grid">
+      <div class="keung-card"><div class="keung-ico">⏰</div><div class="keung-t">Buka Setiap Hari</div><div class="keung-d">Siap melayani pagi hingga malam tanpa libur.</div></div>
+      <div class="keung-card"><div class="keung-ico">💰</div><div class="keung-t">Harga Terjangkau</div><div class="keung-d">Harga bersahabat untuk semua kalangan.</div></div>
+      <div class="keung-card"><div class="keung-ico">🛒</div><div class="keung-t">Produk Lengkap</div><div class="keung-d">Ratusan produk sembako & kebutuhan rumah tersedia.</div></div>
+      <div class="keung-card"><div class="keung-ico">😊</div><div class="keung-t">Pelayanan Ramah</div><div class="keung-d">Dilayani langsung Bung Edi dengan sepenuh hati.</div></div>
+    </div>
+  </section>
+
+</div><!-- /page -->
+
+<!-- KONTAK BAR -->
+<div class="kontak-bar">
+  <div class="kontak-inner">
+    <div class="kontak-item">
+      <div class="kontak-ico">📞</div>
+      <div><div class="kontak-label">Telepon / WhatsApp</div><div class="kontak-val"><a href="tel:081327958234">0813-2795-8234</a></div></div>
+    </div>
+    <div class="kontak-item">
+      <div class="kontak-ico">📍</div>
+      <div><div class="kontak-label">Alamat</div><div class="kontak-val">Jl. Turonggo, Karangturi, Kroya, Cilacap</div></div>
+    </div>
+    <div class="kontak-item">
+      <div class="kontak-ico">⏰</div>
+      <div><div class="kontak-label">Jam Operasional</div><div class="kontak-val">Buka Setiap Hari</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAP -->
+<div class="map-sec" id="lokasi">
+  <div class="page" style="padding-bottom:28px">
+    <div class="sec-head" style="margin-bottom:16px"><div class="sec-title">Lokasi Toko</div></div>
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d500!2d109.2221101!3d-7.6481431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e65404dbd8bf087%3A0xd5fe154f95aac835!2sTOKO%20BUNG%20EDI!5e0!3m2!1sid!2sid!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="map-btn" href="https://maps.app.goo.gl/2TVo8sJ5JSEBXARz9" target="_blank">🗺️ Buka di Google Maps</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="logo-mark">Toko <em>Bung Edi</em></div>
+      <div class="footer-desc">Pusat kebutuhan sembako sehari-hari dan layanan BRI Link resmi di Kroya, Cilacap. Lengkap, terjangkau, dan terpercaya.</div>
+      <div class="footer-addr">📍 Jl. Turonggo, Karangturi, Kroya, Cilacap, Jawa Tengah<br/>📞 0813-2795-8234 (Bung Edi)</div>
+    </div>
+    <div>
+      <div class="footer-col-t">Produk</div>
+      <div class="footer-links">
+        <a href="#">Beras & Telur</a>
+        <a href="#">Minyak & Bumbu</a>
+        <a href="#">Mie & Makanan</a>
+        <a href="#">Minuman & Susu</a>
+        <a href="#">Perawatan & Kebersihan</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-t">Layanan</div>
+      <div class="footer-links">
+        <a href="#">BRI Link</a>
+        <a href="#">Transfer Dana</a>
+        <a href="#">Bayar Tagihan</a>
+        <a href="#">Isi Pulsa & Paket</a>
+        <a href="#" onclick="window.open('https://wa.me/6281327958234','_blank');return false">Chat WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Toko Bung Edi – Kroya, Cilacap</span>
+    <span>Sembako Lengkap & BRI Link</span>
+  </div>
+</footer>
+
+<script>
+/* SLIDER */
+const slideBgs=['linear-gradient(130deg,#cc0000,#e83333)','linear-gradient(130deg,#003f88,#0a5fc9)','linear-gradient(130deg,#c45e00,#e07b20)'];
+let cur=0,tot=3,autoT;
+function goSlide(n){
+  document.querySelectorAll('.hslide').forEach((s,i)=>s.classList.toggle('active',i===n));
+  document.querySelectorAll('.hero-dot').forEach((d,i)=>d.classList.toggle('active',i===n));
+  document.querySelector('.hero').style.background=slideBgs[n];
+  cur=n;
+}
+function changeSlide(d){goSlide((cur+d+tot)%tot);resetAuto()}
+function resetAuto(){clearInterval(autoT);autoT=setInterval(()=>changeSlide(1),4500)}
+resetAuto();
+
+/* TABS */
+function switchTab(el,id){
+  document.querySelectorAll('.ltab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  ['ewallet','pembayaran','transfer'].forEach(t=>{
+    const el2=document.getElementById('tab-'+t);
+    el2.style.display=t===id?'grid':'none';
+  });
+}
+
+/* WA */
+function tanya(p){window.open('https://wa.me/6281327958234?text=Halo%20Bung%20Edi%2C%20saya%20mau%20tanya%20harga%20'+encodeURIComponent(p)+'.','_blank')}
+
+/* MOBILE NAV */
+const ham=document.getElementById('ham');
+const nav=document.getElementById('mobileNav');
+const panel=document.getElementById('mobilePanel');
+ham.addEventListener('click',()=>{nav.classList.add('open');setTimeout(()=>{panel.style.transform='none'},10)});
+document.getElementById('mobClose').addEventListener('click',closeMob);
+nav.addEventListener('click',e=>{if(e.target===nav)closeMob()});
+function closeMob(){nav.classList.remove('open');panel.style.transform='';}
+
+/* NAV ACTIVE on scroll */
+const sections=[{id:'produk',el:document.getElementById('produk')},{id:'layanan',el:document.getElementById('layanan')},{id:'brilink',el:document.getElementById('brilink')},{id:'lokasi',el:document.getElementById('lokasi')}];
+window.addEventListener('scroll',()=>{
+  const pos=window.scrollY+80;
+  let active='';
+  sections.forEach(s=>{if(s.el&&s.el.offsetTop<=pos)active=s.id});
+  document.querySelectorAll('.nav-link').forEach(l=>{
+    const href=l.getAttribute('href');
+    l.classList.toggle('active',active?href==='#'+active:href==='#');
+  });
+});
+</script>
+</body>
+</html>
