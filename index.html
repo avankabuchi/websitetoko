@@ -9,32 +9,13 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Plus Jakarta Sans',sans-serif;background:#f4f4f2;color:#1a1a1a;overflow-x:hidden}
-
-:root{
-  --red:#cc0000;
-  --red-dark:#a30000;
-  --red-light:#fff0f0;
-  --blue:#003f88;
-  --blue-mid:#0052b4;
-  --gold:#f5c518;
-  --text:#1a1a1a;
-  --text-muted:#666;
-  --bg:#f4f4f2;
-  --white:#fff;
-  --border:#e8e8e4;
-  --radius:10px;
-  --radius-lg:16px;
-}
-
-/* ── TOP BAR ── */
+:root{--red:#cc0000;--red-dark:#a30000;--red-light:#fff0f0;--blue:#003f88;--blue-mid:#0052b4;--gold:#f5c518;--text:#1a1a1a;--text-muted:#666;--bg:#f4f4f2;--white:#fff;--border:#e8e8e4;--radius:10px;--radius-lg:16px}
 .topbar{background:#111;color:rgba(255,255,255,.75);font-size:.75rem;font-weight:600;display:flex;justify-content:space-between;align-items:center;padding:7px 24px;gap:8px;flex-wrap:wrap}
 .topbar-left{display:flex;align-items:center;gap:6px}
 .topbar-right{display:flex;align-items:center;gap:16px}
 .topbar a{color:rgba(255,255,255,.85);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color .2s}
 .topbar a:hover{color:#fff}
 .topbar .dot{color:rgba(255,255,255,.3)}
-
-/* ── NAV ── */
 nav{background:var(--white);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(0,0,0,.06)}
 .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;padding:0 24px;height:60px;gap:8px}
 .nav-logo{display:flex;align-items:center;gap:10px;margin-right:auto;flex-shrink:0;text-decoration:none}
@@ -49,8 +30,6 @@ nav{background:var(--white);border-bottom:2px solid var(--border);position:stick
 .btn-wa{display:flex;align-items:center;gap:6px;background:#25d366;color:#fff;font-weight:800;font-size:.8rem;padding:8px 14px;border-radius:8px;text-decoration:none;transition:background .2s;white-space:nowrap}
 .btn-wa:hover{background:#1da851}
 .hamburger{display:none;background:none;border:1.5px solid var(--border);border-radius:8px;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;font-size:1.2rem}
-
-/* Mobile nav drawer */
 .mobile-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:2000;background:rgba(0,0,0,.5)}
 .mobile-nav.open{display:block}
 .mobile-nav-panel{position:absolute;left:0;top:0;bottom:0;width:280px;background:#fff;padding:24px;overflow-y:auto;transform:translateX(-100%);transition:transform .3s ease}
@@ -61,18 +40,11 @@ nav{background:var(--white);border-bottom:2px solid var(--border);position:stick
 .mob-link{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:8px;font-weight:700;font-size:.9rem;color:var(--text);text-decoration:none;transition:background .2s}
 .mob-link:hover{background:var(--red-light);color:var(--red)}
 .mob-ctas{display:flex;flex-direction:column;gap:10px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border)}
-
-/* ── HERO ── */
 .hero{background:var(--red);position:relative;overflow:hidden}
 .hero-inner{max-width:1200px;margin:0 auto;padding:0 24px}
 .hero-slides{position:relative;min-height:320px;display:flex;align-items:center}
 .hslide{position:absolute;inset:0;opacity:0;transition:opacity .6s;display:flex;align-items:center;pointer-events:none}
 .hslide.active{opacity:1;pointer-events:auto;position:relative;flex:1}
-.hslide-1{--h-bg:linear-gradient(130deg,#cc0000 0%,#e83333 100%)}
-.hslide-2{--h-bg:linear-gradient(130deg,#003f88 0%,#0a5fc9 100%)}
-.hslide-3{--h-bg:linear-gradient(130deg,#c45e00 0%,#e07b20 100%)}
-.hero-slides-wrap{background:var(--h-bg, linear-gradient(130deg,#cc0000 0%,#e83333 100%))}
-.slide-bg{position:absolute;inset:0;background:var(--h-bg,linear-gradient(130deg,#cc0000,#e83333));transition:background .6s}
 .hslide-content{position:relative;z-index:1;padding:48px 0;display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;width:100%}
 .slide-tag{display:inline-block;background:rgba(255,255,255,.2);color:rgba(255,255,255,.9);font-size:.7rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:50px;margin-bottom:14px}
 .slide-h{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:10px}
@@ -83,33 +55,22 @@ nav{background:var(--white);border-bottom:2px solid var(--border);position:stick
 .slide-cta.cta-blue{color:var(--blue-mid)}
 .slide-cta.cta-orange{color:#c45e00}
 .slide-graphic{font-size:clamp(4rem,8vw,7rem);opacity:.18;user-select:none;flex-shrink:0;line-height:1}
-.hero-controls{position:absolute;bottom:0;left:0;right:0;padding:14px 0;display:flex;align-items:center;justify-content:center;gap:8px;z-index:10}
-.hero-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;border:none}
-.hero-dot.active{background:#fff;width:22px;border-radius:4px}
 .hero-arr{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.2);border:none;color:#fff;width:38px;height:38px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:background .2s;z-index:10}
 .hero-arr:hover{background:rgba(255,255,255,.38)}
 .hero-arr.prev{left:12px}
 .hero-arr.next{right:12px}
-
-/* ── TICKER ── */
 .ticker-wrap{background:#fff;border-bottom:1px solid var(--border);overflow:hidden;padding:0}
 .ticker-track{display:flex;animation:ticker 22s linear infinite;width:max-content}
 .ticker-track:hover{animation-play-state:paused}
 .ticker-item{display:flex;align-items:center;gap:6px;padding:10px 28px;font-weight:700;font-size:.78rem;color:var(--red);white-space:nowrap;border-right:1px solid var(--border)}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* ── PAGE ── */
 .page{max-width:1200px;margin:0 auto;padding:0 24px}
-
-/* ── SECTIONS ── */
 .sec{padding:28px 0}
 .sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:12px;border-bottom:1.5px solid var(--border)}
 .sec-title{font-size:1.1rem;font-weight:900;color:var(--text);display:flex;align-items:center;gap:10px}
 .sec-title::before{content:'';display:block;width:3px;height:18px;background:var(--red);border-radius:2px;flex-shrink:0}
 .sec-more{font-size:.8rem;font-weight:700;color:var(--red);text-decoration:none}
 .sec-more:hover{text-decoration:underline}
-
-/* ── PROMO GRID ── */
 .promo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 .promo-card{border-radius:var(--radius-lg);overflow:hidden;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.07);transition:transform .2s,box-shadow .2s}
 .promo-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.13)}
@@ -122,8 +83,6 @@ nav{background:var(--white);border-bottom:2px solid var(--border);position:stick
 .promo-body{background:#fff;padding:10px 12px}
 .promo-body h3{font-weight:800;font-size:.86rem;color:var(--text)}
 .promo-body p{font-size:.74rem;color:var(--text-muted);margin-top:2px;font-weight:600}
-
-/* ── PRODUK ── */
 .produk-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
 .produk-card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);transition:transform .2s,box-shadow .2s;cursor:pointer}
 .produk-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
@@ -138,18 +97,15 @@ nav{background:var(--white);border-bottom:2px solid var(--border);position:stick
 .produk-card.cta-card .produk-avail{color:rgba(255,255,255,.8)}
 .produk-card.cta-card .produk-btn{background:#fff;color:var(--red)}
 .produk-card.cta-card .produk-img{background:rgba(255,255,255,.1);font-size:2rem}
-
-/* ── LAYANAN ── */
 .ltabs{display:flex;gap:0;border-bottom:1.5px solid var(--border);margin-bottom:20px;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .ltab{padding:10px 18px;font-weight:700;font-size:.83rem;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1.5px;white-space:nowrap;transition:all .2s;user-select:none}
 .ltab.active{color:var(--red);border-bottom-color:var(--red)}
 .layanan-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
 .layanan-card{background:#fff;border-radius:var(--radius);border:1px solid var(--border);padding:18px 10px;display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;transition:transform .2s,box-shadow .2s}
 .layanan-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
-.layanan-ico{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+.layanan-ico{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.layanan-ico img,.layanan-ico svg{width:100%;height:100%;object-fit:contain}
 .layanan-name{font-weight:700;font-size:.76rem;color:var(--text-muted);text-align:center;line-height:1.3}
-
-/* ── BRI BANNER ── */
 .bri-banner{background:linear-gradient(120deg,#002a6e,#003f88,#0052b4);border-radius:var(--radius-lg);padding:clamp(24px,4vw,40px);display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;margin:28px 0}
 .bri-tag{display:inline-block;background:rgba(255,255,255,.18);color:var(--gold);font-size:.7rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:50px;margin-bottom:10px}
 .bri-h{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:900;color:#fff;line-height:1.2;margin-bottom:8px}
@@ -163,16 +119,12 @@ nav{background:var(--white);border-bottom:2px solid var(--border);position:stick
 .bri-card-s{font-size:.72rem;font-weight:700;color:#00388a;opacity:.75}
 .bri-wa{display:inline-flex;align-items:center;gap:7px;background:#25d366;color:#fff;font-weight:800;font-size:.83rem;padding:10px 20px;border-radius:8px;text-decoration:none;white-space:nowrap}
 .bri-wa:hover{background:#1da851}
-
-/* ── KEUNGGULAN ── */
 .keung-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .keung-card{background:#fff;border-radius:var(--radius-lg);padding:24px 18px;border:1px solid var(--border);text-align:center;transition:transform .2s,box-shadow .2s}
 .keung-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
 .keung-ico{font-size:2rem;margin-bottom:12px}
 .keung-t{font-weight:800;font-size:.92rem;color:var(--text);margin-bottom:6px}
 .keung-d{font-size:.8rem;color:var(--text-muted);line-height:1.55}
-
-/* ── KONTAK BAR ── */
 .kontak-bar{background:var(--red);padding:28px 0;margin-top:28px}
 .kontak-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .kontak-item{display:flex;align-items:center;gap:14px}
@@ -181,15 +133,11 @@ nav{background:var(--white);border-bottom:2px solid var(--border);position:stick
 .kontak-val{color:#fff;font-size:.95rem;font-weight:800;margin-top:2px}
 .kontak-val a{color:#fff;text-decoration:none}
 .kontak-val a:hover{text-decoration:underline}
-
-/* ── MAP ── */
 .map-sec{background:#fff;padding:28px 0}
 .map-wrap{border-radius:var(--radius-lg);overflow:hidden;height:320px;position:relative;border:1px solid var(--border)}
 .map-wrap iframe{width:100%;height:100%;border:0}
 .map-btn{position:absolute;bottom:14px;right:14px;display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;font-weight:800;font-size:.8rem;padding:9px 16px;border-radius:8px;text-decoration:none;box-shadow:0 4px 16px rgba(0,0,0,.25)}
 .map-btn:hover{background:var(--red-dark)}
-
-/* ── FOOTER ── */
 footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
 .footer-grid{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:32px}
 .footer-desc{font-size:.83rem;line-height:1.7;color:rgba(255,255,255,.55);max-width:280px;margin-top:12px}
@@ -199,83 +147,13 @@ footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
 .footer-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.83rem;font-weight:600;transition:color .2s}
 .footer-links a:hover{color:#fff}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding:16px 24px;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:rgba(255,255,255,.35);flex-wrap:wrap;gap:8px}
-
-/* ════════════════════════
-   RESPONSIVE — TABLET (768–1023px)
-════════════════════════ */
-@media(max-width:1023px){
-  .nav-links{display:none}
-  .hamburger{display:flex}
-  .promo-grid{grid-template-columns:repeat(2,1fr)}
-  .produk-grid{grid-template-columns:repeat(3,1fr)}
-  .layanan-grid{grid-template-columns:repeat(3,1fr)}
-  .keung-grid{grid-template-columns:repeat(2,1fr)}
-  .kontak-inner{grid-template-columns:1fr 1fr}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
-  .bri-banner{grid-template-columns:1fr}
-  .bri-right{flex-direction:row;justify-content:flex-start}
-  .slide-graphic{font-size:5rem}
-}
-
-/* ════════════════════════
-   RESPONSIVE — MOBILE (<600px)
-════════════════════════ */
-@media(max-width:599px){
-  .topbar{padding:6px 16px}
-  .topbar-left span:first-child{display:none}
-  .nav-inner{padding:0 16px;height:54px}
-  .nav-ctas .btn-call{display:none}
-
-  .hero-arr{width:32px;height:32px;font-size:.9rem}
-  .hslide-content{grid-template-columns:1fr;padding:36px 0 52px}
-  .slide-graphic{display:none}
-
-  .page{padding:0 16px}
-
-  .promo-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .promo-face{height:110px;font-size:1.15rem}
-
-  .produk-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-  .produk-img{height:80px;font-size:2rem}
-
-  .layanan-grid{grid-template-columns:repeat(3,1fr);gap:8px}
-  .layanan-card{padding:14px 8px}
-  .layanan-ico{width:44px;height:44px;font-size:1.4rem}
-  .layanan-name{font-size:.72rem}
-
-  .bri-banner{padding:22px 18px}
-  .bri-h{font-size:1.3rem}
-  .bri-right{flex-direction:column;align-items:flex-start}
-  .bri-card{min-width:unset;width:100%}
-
-  .keung-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .keung-card{padding:18px 14px}
-
-  .kontak-inner{grid-template-columns:1fr;gap:16px}
-
-  .map-wrap{height:250px}
-
-  .footer-grid{grid-template-columns:1fr;gap:24px}
-  .footer-bottom{flex-direction:column;text-align:center}
-
-  .sec{padding:20px 0}
-  .sec-title{font-size:1rem}
-
-  .ltab{padding:9px 14px;font-size:.8rem}
-}
-
-/* ════════════════════════
-   RESPONSIVE — SMALL MOBILE (<380px)
-════════════════════════ */
-@media(max-width:379px){
-  .layanan-grid{grid-template-columns:repeat(2,1fr)}
-  .produk-grid{grid-template-columns:repeat(2,1fr)}
-}
+@media(max-width:1023px){.nav-links{display:none}.hamburger{display:flex}.promo-grid{grid-template-columns:repeat(2,1fr)}.produk-grid{grid-template-columns:repeat(3,1fr)}.layanan-grid{grid-template-columns:repeat(3,1fr)}.keung-grid{grid-template-columns:repeat(2,1fr)}.kontak-inner{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr;gap:28px}.bri-banner{grid-template-columns:1fr}.bri-right{flex-direction:row;justify-content:flex-start}.slide-graphic{font-size:5rem}}
+@media(max-width:599px){.topbar{padding:6px 16px}.nav-inner{padding:0 16px;height:54px}.nav-ctas .btn-call{display:none}.hero-arr{width:32px;height:32px;font-size:.9rem}.hslide-content{grid-template-columns:1fr;padding:36px 0 52px}.slide-graphic{display:none}.page{padding:0 16px}.promo-grid{grid-template-columns:1fr 1fr;gap:10px}.promo-face{height:110px;font-size:1.15rem}.produk-grid{grid-template-columns:repeat(2,1fr);gap:10px}.produk-img{height:80px;font-size:2rem}.layanan-grid{grid-template-columns:repeat(3,1fr);gap:8px}.layanan-card{padding:14px 8px}.layanan-ico{width:44px;height:44px;font-size:1.4rem}.layanan-name{font-size:.72rem}.bri-banner{padding:22px 18px}.bri-h{font-size:1.3rem}.bri-right{flex-direction:column;align-items:flex-start}.bri-card{min-width:unset;width:100%}.keung-grid{grid-template-columns:1fr 1fr;gap:10px}.keung-card{padding:18px 14px}.kontak-inner{grid-template-columns:1fr;gap:16px}.map-wrap{height:250px}.footer-grid{grid-template-columns:1fr;gap:24px}.footer-bottom{flex-direction:column;text-align:center}.sec{padding:20px 0}.sec-title{font-size:1rem}.ltab{padding:9px 14px;font-size:.8rem}}
+@media(max-width:379px){.layanan-grid{grid-template-columns:repeat(2,1fr)}.produk-grid{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
 <div class="topbar">
   <div class="topbar-left">
     <span>🏪</span>
@@ -288,7 +166,6 @@ footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
   </div>
 </div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="#">
@@ -309,7 +186,6 @@ footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
   </div>
 </nav>
 
-<!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-nav-panel" id="mobilePanel">
     <button class="mob-close" id="mobClose">✕</button>
@@ -328,11 +204,9 @@ footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
   </div>
 </div>
 
-<!-- HERO SLIDER -->
 <div class="hero" id="heroBg">
   <div class="hero-inner" style="position:relative">
     <div class="hero-slides" id="heroSlides">
-      <!-- Slide 1 -->
       <div class="hslide active" id="hs0">
         <div class="hslide-content">
           <div>
@@ -344,7 +218,6 @@ footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
           <div class="slide-graphic">🛒</div>
         </div>
       </div>
-      <!-- Slide 2 -->
       <div class="hslide" id="hs1">
         <div class="hslide-content">
           <div>
@@ -356,7 +229,6 @@ footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
           <div class="slide-graphic">🏦</div>
         </div>
       </div>
-      <!-- Slide 3 -->
       <div class="hslide" id="hs2">
         <div class="hslide-content">
           <div>
@@ -372,14 +244,13 @@ footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
     <button class="hero-arr prev" onclick="changeSlide(-1)">‹</button>
     <button class="hero-arr next" onclick="changeSlide(1)">›</button>
     <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10">
-      <button class="hero-dot active" onclick="goSlide(0)"></button>
-      <button class="hero-dot" onclick="goSlide(1)"></button>
-      <button class="hero-dot" onclick="goSlide(2)"></button>
+      <button class="hero-dot active" onclick="goSlide(0)" style="width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;border:none;transition:all .3s"></button>
+      <button class="hero-dot" onclick="goSlide(1)" style="width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;border:none;transition:all .3s"></button>
+      <button class="hero-dot" onclick="goSlide(2)" style="width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;border:none;transition:all .3s"></button>
     </div>
   </div>
 </div>
 
-<!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker-track">
     <div class="ticker-item">🔥 Sembako Lengkap Setiap Hari</div>
@@ -399,10 +270,8 @@ footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
   </div>
 </div>
 
-<!-- PAGE CONTENT -->
 <div class="page">
 
-  <!-- PROMO -->
   <section class="sec">
     <div class="sec-head">
       <div class="sec-title">Promo &amp; Program</div>
@@ -428,7 +297,6 @@ footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
     </div>
   </section>
 
-  <!-- PRODUK SEMBAKO -->
   <section class="sec" id="produk">
     <div class="sec-head">
       <div class="sec-title">Produk Sembako</div>
@@ -458,33 +326,243 @@ footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
       <div class="ltab" onclick="switchTab(this,'pembayaran')">🔌 Pembayaran</div>
       <div class="ltab" onclick="switchTab(this,'transfer')">💸 Transfer Dana</div>
     </div>
+
+    <!-- TAB: E-WALLET -->
     <div id="tab-ewallet" class="layanan-grid">
-      <div class="layanan-card"><div class="layanan-ico" style="background:#fff0e6">🛍</div><div class="layanan-name">ShopeePay</div></div>
-      <div class="layanan-card"><div class="layanan-ico" style="background:#e8f2fb">💙</div><div class="layanan-name">DANA</div></div>
-      <div class="layanan-card"><div class="layanan-ico" style="background:#e6f9ef">💚</div><div class="layanan-name">GoPay</div></div>
-      <div class="layanan-card"><div class="layanan-ico" style="background:#e8eef9">🔗</div><div class="layanan-name">LinkAja</div></div>
-      <div class="layanan-card"><div class="layanan-ico" style="background:#fde8f4">💳</div><div class="layanan-name">OVO</div></div>
-      <div class="layanan-card"><div class="layanan-ico" style="background:#ffeeee">🏦</div><div class="layanan-name">BRI Link</div></div>
+
+      <!-- ShopeePay -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="background:#ff5722;border-radius:12px;padding:6px">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="20" fill="#FF5722"/>
+            <text x="60" y="78" font-family="Arial Black, Arial" font-weight="900" font-size="52" fill="white" text-anchor="middle">S</text>
+            <rect x="20" y="88" width="80" height="8" rx="4" fill="white" opacity="0.9"/>
+          </svg>
+        </div>
+        <div class="layanan-name">ShopeePay</div>
+      </div>
+
+      <!-- DANA -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="background:#white;border-radius:12px;padding:4px;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="white"/>
+            <rect x="8" y="8" width="104" height="104" rx="14" fill="#108EE9"/>
+            <text x="60" y="72" font-family="Arial Black, Arial" font-weight="900" font-size="30" fill="white" text-anchor="middle">DANA</text>
+          </svg>
+        </div>
+        <div class="layanan-name">DANA</div>
+      </div>
+
+      <!-- GoPay -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#00AA5B"/>
+            <text x="60" y="50" font-family="Arial Black, Arial" font-weight="900" font-size="22" fill="white" text-anchor="middle">Go</text>
+            <text x="60" y="80" font-family="Arial Black, Arial" font-weight="900" font-size="22" fill="white" text-anchor="middle">Pay</text>
+          </svg>
+        </div>
+        <div class="layanan-name">GoPay</div>
+      </div>
+
+      <!-- LinkAja -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#E82529"/>
+            <text x="60" y="52" font-family="Arial Black, Arial" font-weight="900" font-size="19" fill="white" text-anchor="middle">Link</text>
+            <text x="60" y="80" font-family="Arial Black, Arial" font-weight="900" font-size="19" fill="white" text-anchor="middle">Aja</text>
+          </svg>
+        </div>
+        <div class="layanan-name">LinkAja</div>
+      </div>
+
+      <!-- OVO -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#4C3494"/>
+            <text x="60" y="74" font-family="Arial Black, Arial" font-weight="900" font-size="40" fill="white" text-anchor="middle">OVO</text>
+          </svg>
+        </div>
+        <div class="layanan-name">OVO</div>
+      </div>
+
+      <!-- BRI Link -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#003082"/>
+            <text x="60" y="48" font-family="Arial Black, Arial" font-weight="900" font-size="16" fill="white" text-anchor="middle">BRI</text>
+            <text x="60" y="72" font-family="Arial Black, Arial" font-weight="900" font-size="16" fill="#F5C518" text-anchor="middle">Link</text>
+            <rect x="20" y="80" width="80" height="5" rx="2.5" fill="#F5C518"/>
+          </svg>
+        </div>
+        <div class="layanan-name">BRI Link</div>
+      </div>
+
     </div>
+
+    <!-- TAB: PEMBAYARAN -->
     <div id="tab-pembayaran" class="layanan-grid" style="display:none">
-      <div class="layanan-card"><div class="layanan-ico" style="background:#e8eef9">⚡</div><div class="layanan-name">Listrik PLN</div></div>
-      <div class="layanan-card"><div class="layanan-ico" style="background:#e6f4fb">💧</div><div class="layanan-name">PDAM / Air</div></div>
-      <div class="layanan-card"><div class="layanan-ico" style="background:#fde8f4">📱</div><div class="layanan-name">Pulsa & Paket</div></div>
-      <div class="layanan-card"><div class="layanan-ico" style="background:#fff0e6">📺</div><div class="layanan-name">TV Kabel</div></div>
-      <div class="layanan-card"><div class="layanan-ico" style="background:#eaf6e4">🌐</div><div class="layanan-name">Internet</div></div>
-      <div class="layanan-card"><div class="layanan-ico" style="background:#e8eef9">🎓</div><div class="layanan-name">BPJS Kes.</div></div>
+
+      <!-- PLN -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#004B87"/>
+            <polygon points="65,15 45,65 62,65 55,105 80,50 62,50 75,15" fill="#F7C300"/>
+          </svg>
+        </div>
+        <div class="layanan-name">Listrik PLN</div>
+      </div>
+
+      <!-- PDAM -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#0077B6"/>
+            <ellipse cx="60" cy="75" rx="28" ry="22" fill="#00B4D8" opacity="0.85"/>
+            <path d="M60 20 Q75 50 60 75 Q45 50 60 20Z" fill="white"/>
+          </svg>
+        </div>
+        <div class="layanan-name">PDAM / Air</div>
+      </div>
+
+      <!-- Pulsa -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#FF6B35"/>
+            <rect x="35" y="25" width="50" height="70" rx="8" fill="white"/>
+            <rect x="42" y="32" width="36" height="28" rx="4" fill="#FF6B35" opacity="0.3"/>
+            <circle cx="60" cy="82" r="5" fill="#FF6B35"/>
+          </svg>
+        </div>
+        <div class="layanan-name">Pulsa & Paket</div>
+      </div>
+
+      <!-- TV Kabel -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#1565C0"/>
+            <rect x="18" y="35" width="84" height="55" rx="6" fill="white"/>
+            <rect x="24" y="41" width="72" height="43" rx="4" fill="#1565C0" opacity="0.25"/>
+            <rect x="45" y="90" width="30" height="6" rx="3" fill="white" opacity="0.7"/>
+          </svg>
+        </div>
+        <div class="layanan-name">TV Kabel</div>
+      </div>
+
+      <!-- Internet -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#0097A7"/>
+            <circle cx="60" cy="60" r="32" fill="none" stroke="white" stroke-width="5"/>
+            <ellipse cx="60" cy="60" rx="14" ry="32" fill="none" stroke="white" stroke-width="4"/>
+            <line x1="28" y1="60" x2="92" y2="60" stroke="white" stroke-width="4"/>
+            <line x1="32" y1="42" x2="88" y2="42" stroke="white" stroke-width="3"/>
+            <line x1="32" y1="78" x2="88" y2="78" stroke="white" stroke-width="3"/>
+          </svg>
+        </div>
+        <div class="layanan-name">Internet</div>
+      </div>
+
+      <!-- BPJS -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#00833E"/>
+            <text x="60" y="52" font-family="Arial Black, Arial" font-weight="900" font-size="16" fill="white" text-anchor="middle">BPJS</text>
+            <text x="60" y="76" font-family="Arial Black, Arial" font-weight="700" font-size="13" fill="#A8E6C0" text-anchor="middle">Kesehatan</text>
+          </svg>
+        </div>
+        <div class="layanan-name">BPJS Kes.</div>
+      </div>
+
     </div>
+
+    <!-- TAB: TRANSFER -->
     <div id="tab-transfer" class="layanan-grid" style="display:none">
-      <div class="layanan-card"><div class="layanan-ico" style="background:#e8eef9">🏦</div><div class="layanan-name">Transfer BRI</div></div>
-      <div class="layanan-card"><div class="layanan-ico" style="background:#e8eef9">💙</div><div class="layanan-name">Transfer BNI</div></div>
-      <div class="layanan-card"><div class="layanan-ico" style="background:#fff8e6">🟡</div><div class="layanan-name">Transfer Mandiri</div></div>
-      <div class="layanan-card"><div class="layanan-ico" style="background:#ffeeee">❤️</div><div class="layanan-name">Transfer BCA</div></div>
-      <div class="layanan-card"><div class="layanan-ico" style="background:#e6f9ef">💵</div><div class="layanan-name">Transfer Lainnya</div></div>
-      <div class="layanan-card"><div class="layanan-ico" style="background:#f3e8fb">📲</div><div class="layanan-name">Tarik Tunai</div></div>
+
+      <!-- BRI -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#003082"/>
+            <text x="60" y="72" font-family="Arial Black, Arial" font-weight="900" font-size="38" fill="white" text-anchor="middle">BRI</text>
+          </svg>
+        </div>
+        <div class="layanan-name">Transfer BRI</div>
+      </div>
+
+      <!-- BNI -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#FF6200"/>
+            <text x="60" y="72" font-family="Arial Black, Arial" font-weight="900" font-size="38" fill="white" text-anchor="middle">BNI</text>
+          </svg>
+        </div>
+        <div class="layanan-name">Transfer BNI</div>
+      </div>
+
+      <!-- Mandiri -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#003087"/>
+            <text x="60" y="58" font-family="Arial Black, Arial" font-weight="900" font-size="14" fill="#F5C518" text-anchor="middle">bank</text>
+            <text x="60" y="80" font-family="Arial Black, Arial" font-weight="900" font-size="17" fill="white" text-anchor="middle">mandiri</text>
+          </svg>
+        </div>
+        <div class="layanan-name">Transfer Mandiri</div>
+      </div>
+
+      <!-- BCA -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#005BAA"/>
+            <text x="60" y="68" font-family="Arial Black, Arial" font-weight="900" font-size="38" fill="white" text-anchor="middle">BCA</text>
+          </svg>
+        </div>
+        <div class="layanan-name">Transfer BCA</div>
+      </div>
+
+      <!-- Lainnya -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#546E7A"/>
+            <rect x="20" y="38" width="80" height="12" rx="6" fill="white" opacity="0.9"/>
+            <rect x="20" y="58" width="80" height="12" rx="6" fill="white" opacity="0.7"/>
+            <rect x="20" y="78" width="50" height="12" rx="6" fill="white" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="layanan-name">Transfer Lainnya</div>
+      </div>
+
+      <!-- Tarik Tunai -->
+      <div class="layanan-card">
+        <div class="layanan-ico" style="border-radius:12px;padding:4px;background:#fff;border:1px solid #e0e0e0">
+          <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="16" fill="#2E7D32"/>
+            <rect x="18" y="42" width="84" height="52" rx="8" fill="white" opacity="0.2"/>
+            <rect x="18" y="42" width="84" height="52" rx="8" fill="none" stroke="white" stroke-width="4"/>
+            <circle cx="60" cy="68" r="14" fill="white" opacity="0.85"/>
+            <text x="60" y="73" font-family="Arial Black, Arial" font-weight="900" font-size="16" fill="#2E7D32" text-anchor="middle">Rp</text>
+          </svg>
+        </div>
+        <div class="layanan-name">Tarik Tunai</div>
+      </div>
+
     </div>
   </section>
 
-  <!-- BRI LINK -->
   <div class="bri-banner" id="brilink">
     <div>
       <div class="bri-tag">🏦 Agen Resmi BRI</div>
@@ -508,7 +586,6 @@ footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
     </div>
   </div>
 
-  <!-- KEUNGGULAN -->
   <section class="sec">
     <div class="sec-head"><div class="sec-title">Kenapa Pilih Bung Edi?</div></div>
     <div class="keung-grid">
@@ -519,9 +596,8 @@ footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
     </div>
   </section>
 
-</div><!-- /page -->
+</div>
 
-<!-- KONTAK BAR -->
 <div class="kontak-bar">
   <div class="kontak-inner">
     <div class="kontak-item">
@@ -539,7 +615,6 @@ footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
   </div>
 </div>
 
-<!-- MAP -->
 <div class="map-sec" id="lokasi">
   <div class="page" style="padding-bottom:28px">
     <div class="sec-head" style="margin-bottom:16px"><div class="sec-title">Lokasi Toko</div></div>
@@ -550,7 +625,6 @@ footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
@@ -586,12 +660,15 @@ footer{background:#111;color:rgba(255,255,255,.6);padding:40px 0 0}
 </footer>
 
 <script>
-/* SLIDER */
 const slideBgs=['linear-gradient(130deg,#cc0000,#e83333)','linear-gradient(130deg,#003f88,#0a5fc9)','linear-gradient(130deg,#c45e00,#e07b20)'];
 let cur=0,tot=3,autoT;
 function goSlide(n){
   document.querySelectorAll('.hslide').forEach((s,i)=>s.classList.toggle('active',i===n));
-  document.querySelectorAll('.hero-dot').forEach((d,i)=>d.classList.toggle('active',i===n));
+  document.querySelectorAll('.hero-dot').forEach((d,i)=>{
+    d.style.background=i===n?'#fff':'rgba(255,255,255,.35)';
+    d.style.width=i===n?'22px':'7px';
+    d.style.borderRadius=i===n?'4px':'50%';
+  });
   document.querySelector('.hero').style.background=slideBgs[n];
   cur=n;
 }
@@ -599,20 +676,17 @@ function changeSlide(d){goSlide((cur+d+tot)%tot);resetAuto()}
 function resetAuto(){clearInterval(autoT);autoT=setInterval(()=>changeSlide(1),4500)}
 resetAuto();
 
-/* TABS */
 function switchTab(el,id){
   document.querySelectorAll('.ltab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
   ['ewallet','pembayaran','transfer'].forEach(t=>{
-    const el2=document.getElementById('tab-'+t);
-    el2.style.display=t===id?'grid':'none';
+    const e=document.getElementById('tab-'+t);
+    e.style.display=t===id?'grid':'none';
   });
 }
 
-/* WA */
 function tanya(p){window.open('https://wa.me/6281327958234?text=Halo%20Bung%20Edi%2C%20saya%20mau%20tanya%20harga%20'+encodeURIComponent(p)+'.','_blank')}
 
-/* MOBILE NAV */
 const ham=document.getElementById('ham');
 const nav=document.getElementById('mobileNav');
 const panel=document.getElementById('mobilePanel');
@@ -621,7 +695,6 @@ document.getElementById('mobClose').addEventListener('click',closeMob);
 nav.addEventListener('click',e=>{if(e.target===nav)closeMob()});
 function closeMob(){nav.classList.remove('open');panel.style.transform='';}
 
-/* NAV ACTIVE on scroll */
 const sections=[{id:'produk',el:document.getElementById('produk')},{id:'layanan',el:document.getElementById('layanan')},{id:'brilink',el:document.getElementById('brilink')},{id:'lokasi',el:document.getElementById('lokasi')}];
 window.addEventListener('scroll',()=>{
   const pos=window.scrollY+80;
